@@ -4,22 +4,33 @@ Write a JavaScript program to check two numbers and return true if one of the nu
 */
 
 ////// my solution
-function checkOneHundred(a, b) {
-  if (a === 100 || b === 100 || a + b === 100) {
-    return true;
-  } else {
-    return false;
-  }
-}
+// function checkOneHundred(a, b) {
+//   if (a === 100 || b === 100 || a + b === 100) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 
-checkOneHundred(47, 53);
-checkOneHundred(100, 53);
-checkOneHundred(47, 100);
-checkOneHundred(47, 58);
+// checkOneHundred(47, 53);
+// checkOneHundred(100, 53);
+// checkOneHundred(47, 100);
+// checkOneHundred(47, 58);
 
 /////// teacher solution
-const checkIf100 = (a, b) => a === 100 || b === 100 || a + b === 100;
-checkIf100(47, 53);
-checkIf100(100, 53);
-checkIf100(47, 100);
-checkIf100(47, 58);
+// const checkIf100 = (a, b) => a === 100 || b === 100 || a + b === 100;
+// checkIf100(47, 53);
+// checkIf100(100, 53);
+// checkIf100(47, 100);
+// checkIf100(47, 58);
+
+/* --------------------------------------------------------
+Exercise 2:
+--------------
+Write a JavaScript program to get the extension of a filename.
+*/
+const getFileExtension = (file) =>
+  `File has the following extension: ${file.slice(file.lastIndexOf(".") + 1)}`;
+
+getFileExtension("text.txt");
+getFileExtension("webpack.config.js");
