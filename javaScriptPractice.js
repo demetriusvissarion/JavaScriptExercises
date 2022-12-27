@@ -29,8 +29,43 @@ Exercise 2:
 --------------
 Write a JavaScript program to get the extension of a filename.
 */
-const getFileExtension = (file) =>
-  `File has the following extension: ${file.slice(file.lastIndexOf(".") + 1)}`;
+// const getFileExtension = (file) =>
+//   `File has the following extension: ${file.slice(file.lastIndexOf(".") + 1)}`;
 
-getFileExtension("text.txt");
-getFileExtension("webpack.config.js");
+// getFileExtension("text.txt");
+// getFileExtension("webpack.config.js");
+
+/* --------------------------------------------------------
+Exercise 3:
+--------------
+Write a JavaScript program to replace every character in a given string with the character following it in the alphabet.
+*/
+
+//////// my solution
+// const replaceLetterWithNext = (str) => {
+//   let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".split(
+//     ""
+//   );
+//   let array = str.split(" ");
+//   let result = [];
+//   for (item of array) {
+//     let convertedWord = item
+//       .toString()
+//       .split("")
+//       .map((x) => alphabet[alphabet.indexOf(x) + 1])
+//       .join("");
+//     result.push(convertedWord);
+//   }
+//   return result.join(" ");
+// };
+
+// replaceLetterWithNext("This is a test");
+
+///////// teacher solution
+// const moveCharsForward = (str) =>
+//   str
+//     .split("")
+//     .map((char) => String.fromCharCode(char.charCodeAt(0) + 1))
+//     .join("");
+
+// console.log(moveCharsForward("This is a test"));
