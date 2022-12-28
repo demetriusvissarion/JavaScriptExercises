@@ -94,3 +94,21 @@ const formatDate = (date = new Date()) => {
   return `${days}/${months}/${years}`;
 };
 formatDate();
+
+/* --------------------------------------------------------
+Exercise 5:
+--------------
+Write a JavaScript program to a new string adding "New!" in front of a given string. If the given string begins with "New!" already then return the original string.
+*/
+
+///////// my solution
+const addNew = (str) => (str.substring(0, 4) === "New!" ? str : `New! ${str}`);
+
+addNew("adidas");
+addNew("New! nike");
+
+///////// teacher solution
+const addNew2 = (str) => (str.indexof("New!") === 0 ? str : `New! ${str}`);
+
+addNew("adidas");
+addNew("New! nike");
