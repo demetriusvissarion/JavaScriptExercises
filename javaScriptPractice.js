@@ -125,16 +125,22 @@ Question: What state are the doors in after the last pass? Which are open, which
 [Source http://rosettacode.org]
 */
 
-let hallway = new Array(100).fill("closed"); // Creating an array of size 100 and filled of 'closed'
-console.log(hallway);
-
-for(let i = 1; i <= hallway.length; i++) {
-  hallway[i] = 
+let hallway = new Array(10).fill("closed"); // Creating an array of size 100 and filled of 'closed'
+console.log("Initial array is: " + hallway);
+for (let round = 1; round <= hallway.length; round++) {
+  for (let item = round; item <= hallway.length + 1; item++) {
+    // test if position of "item" in the array is a multiple of "round"
+    if (round % item === 0) {
+      hallway[item] = !hallway[item];
+    }
+  }
+  console.log(`Loop ${item}: ` + hallway);
 }
-// 1st pass: toggle all doors
-// 2nd pass: toggle every 2nd door (door #2, #4, #6, ...).
-// 3rd pass: toggle every 3rd door (door #3, #6, #9, ...)
+console.log("Final array is: " + hallway);
+// 1st round: toggle all doors
+// 2nd round: toggle every 2nd door (door #2, #4, #6, ...).
+// 3rd round: toggle every 3rd door (door #3, #6, #9, ...)
 // ...
 // ...
 // ...
-// 100th pass: only toggle the 100th door
+// 100th round: only toggle the 100th door
