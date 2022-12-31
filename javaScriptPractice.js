@@ -116,31 +116,178 @@ Write a JavaScript program to a new string adding "New!" in front of a given str
 /* --------------------------------------------------------
 Exercise 6:
 --------------
-100 doors in a row are all initially closed. You make 100 passes by the doors. The first time through, you visit every door and toggle the door (if the door is closed, you open it; if it is open, you close it).
-The second time you only visit every 2nd door (door #2, #4, #6, ...).
-The third time, every 3rd door (door #3, #6, #9, ...), etc, until you only visit the 100th door.
+Write the smallest program that outputs the lyrics of the Xmas carol The Twelve Days of Xmas.
+You must reproduce the words in the correct order, but case, format, and punctuation are left to your discretion.
 
-Question: What state are the doors in after the last pass? Which are open, which are closed?
+The lyrics are as follows:
 
-[Source http://rosettacode.org]
+On the first day of Christmas
+My true love gave to me:
+A partridge in a pear tree.
+
+On the second day of Christmas
+My true love gave to me:
+Two turtle doves and
+A partridge in a pear tree.
+
+On the third day of Christmas
+My true love gave to me:
+Three french hens
+Two turtle doves and
+A partridge in a pear tree.
+
+On the fourth day of Christmas
+My true love gave to me:
+Four calling birds
+Three french hens
+Two turtle doves and
+A partridge in a pear tree.
+
+On the fifth day of Christmas
+My true love gave to me:
+Five golden rings
+Four calling birds
+Three french hens
+Two turtle doves and
+A partridge in a pear tree.
+
+On the sixth day of Christmas,
+My true love gave to me:
+Six geese a-laying
+Five golden rings
+Four calling birds
+Three french hens
+Two turtle doves and
+A partridge in a pear tree.
+
+On the seventh day of Christmas,
+My true love gave to me:
+Seven swans a-swimming
+Six geese a-laying
+Five golden rings
+Four calling birds
+Three french hens
+Two turtle doves and
+A partridge in a pear tree.
+
+On the eight day of Christmas,
+My true love gave to me:
+Eight maids a-milking
+Seven swans a-swimming
+Six geese a-laying
+Five golden rings
+Four calling birds
+Three french hens
+Two turtle doves and
+A partridge in a pear tree.
+
+On the ninth day of Christmas,
+My true love gave to me:
+Nine ladies dancing
+Eight maids a-milking
+Seven swans a-swimming
+Six geese a-laying
+Five golden rings
+Four calling birds
+Three french hens
+Two turtle doves and
+A partridge in a pear tree.
+
+On the tenth day of Christmas,
+My true love gave to me:
+Ten lords a-leaping
+Nine ladies dancing
+Eight maids a-milking
+Seven swans a-swimming
+Six geese a-laying
+Five golden rings
+Four calling birds
+Three french hens
+Two turtle doves and
+A partridge in a pear tree.
+
+On the eleventh day of Christmas,
+My true love gave to me:
+Eleven pipers piping
+Ten lords a-leaping
+Nine ladies dancing
+Eight maids a-milking
+Seven swans a-swimming
+Six geese a-laying
+Five golden rings
+Four calling birds
+Three french hens
+Two turtle doves and
+A partridge in a pear tree.
+
+On the twelfth day of Christmas,
+My true love gave to me:
+Twelve drummers drumming
+Eleven pipers piping
+Ten lords a-leaping
+Nine ladies dancing
+Eight maids a-milking
+Seven swans a-swimming
+Six geese a-laying
+Five golden rings
+Four calling birds
+Three french hens
+Two turtle doves and
+A partridge in a pear tree.
+
+[Source https://rosettacode.org]
+
 */
 
-let hallway = new Array(10).fill("closed"); // Creating an array of size 100 and filled of 'closed'
-console.log("Initial array is: " + hallway);
-for (let round = 1; round <= hallway.length; round++) {
-  for (let item = round; item <= hallway.length + 1; item++) {
-    // test if position of "item" in the array is a multiple of "round"
-    if (round % item === 0) {
-      hallway[item] = !hallway[item];
-    }
+const lyrics12DaysOfXmas = () => {
+  const days = [
+    "second",
+    "third",
+    "fourth",
+    "fifth",
+    "sixth",
+    "seventh",
+    "eight",
+    "ninth",
+    "tenth",
+    "eleventh",
+    "twelfth",
+  ];
+  let counter = 1;
+  let fullLyrics = [];
+  let firstVerse =
+    "On the first day of Christmas, \nMy true love gave to me: \nA partridge in a pear tree.";
+  console.log(firstVerse);
+  for (let day of days) {
+    let firstLines = `On the ${day} day of Christmas, \nMy true love gave to me:`;
+    let lastLine = "A partridge in a pear tree.";
+    const lines = [
+      "Two turtle doves and",
+      "Three french hens",
+      "Four calling birds",
+      "Five golden rings",
+      "Six geese a-laying",
+      "Seven swans a-swimming",
+      "Eight maids a-milking",
+      "Nine ladies dancing",
+      "Ten lords a-leaping",
+      "Eleven pipers piping",
+      "Twelve drummers drumming",
+    ];
+    let indexRange = (arr, start, end) => {
+      return arr.slice(start, end);
+    };
+    let verse =
+      firstLines +
+      "\n" +
+      indexRange(lines, 0, counter).reverse().join("\n") +
+      "\n" +
+      lastLine;
+
+    console.log(verse);
+    // fullLyrics.push(`${verse} \n`);
+    counter++;
   }
-  console.log(`Loop ${item}: ` + hallway);
-}
-console.log("Final array is: " + hallway);
-// 1st round: toggle all doors
-// 2nd round: toggle every 2nd door (door #2, #4, #6, ...).
-// 3rd round: toggle every 3rd door (door #3, #6, #9, ...)
-// ...
-// ...
-// ...
-// 100th round: only toggle the 100th door
+  // console.log(fullLyrics);
+};
+lyrics12DaysOfXmas();
