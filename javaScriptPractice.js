@@ -257,7 +257,6 @@ const lyrics12DaysOfXmas = () => {
   let fullLyrics = [];
   let firstVerse =
     "On the first day of Christmas, \nMy true love gave to me: \nA partridge in a pear tree.";
-  console.log(firstVerse);
   for (let day of days) {
     let firstLines = `On the ${day} day of Christmas, \nMy true love gave to me:`;
     let lastLine = "A partridge in a pear tree.";
@@ -284,10 +283,10 @@ const lyrics12DaysOfXmas = () => {
       "\n" +
       lastLine;
 
-    console.log(verse);
-    // fullLyrics.push(`${verse} \n`);
+    // console.log(verse);
+    fullLyrics.push([verse]);
     counter++;
   }
-  // console.log(fullLyrics);
+  console.log(firstVerse + "\n\n" + fullLyrics.join("\n\n"));
 };
 lyrics12DaysOfXmas();
