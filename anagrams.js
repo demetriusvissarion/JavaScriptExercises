@@ -9,6 +9,27 @@
 // obir obri oibr oirb orbi orib
 
 // my solution:
+const generateAnagrams = (start, word) => {
+  if (word.length == 1) {
+    return [start + word];
+  } else {
+    let returnResult = [];
+    for (let i = 0; i < word.length; i++) {
+      let result = generateAnagrams(
+        word[i],
+        word.substr(0, i) + word.substr(i + 1)
+      );
+      for (let j = 0; j < result.length; j++) {
+        returnResult.push(start + result[j]);
+      }
+    }
+
+    return returnResult;
+  }
+};
+
+// tests:
+generateAnagrams("", "biro");
 
 // 2.
 // DESCRIPTION:
